@@ -1,6 +1,12 @@
 'use strict';
 
 module.exports = function (app) {
+  // Dashboard
+  var todoListDashboard = require('./controller/dashboard');
+
+  app.route('/dashboard/lap_jaldin/:user_id/:tahun')
+    .get(todoListDashboard.lapJaldin);
+
   // Users
   var todoListUsers = require('./controller/users');
 
