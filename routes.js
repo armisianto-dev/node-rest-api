@@ -1,6 +1,13 @@
 'use strict';
 
 module.exports = function (app) {
+  // Base apps
+  var todoListStaffBase = require('./controller/staff-base');
+
+  app.route('/staff-base/list_menu/:user_id/:parent_id')
+    .get(todoListStaffBase.listMenu);
+
+
   // Dashboard
   var todoListDashboard = require('./controller/dashboard');
 
