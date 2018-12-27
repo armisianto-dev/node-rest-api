@@ -7,12 +7,18 @@ module.exports = function (app) {
   app.route('/staff-base/list_menu/:user_id/:parent_id')
     .get(todoListStaffBase.listMenu);
 
+  app.route('/staff-base/list_menu_all_child/:user_id')
+    .get(todoListStaffBase.listMenuAllChild);
+
 
   // Dashboard
   var todoListDashboard = require('./controller/dashboard');
 
   app.route('/dashboard/lap_jaldin/:user_id/:tahun')
     .get(todoListDashboard.lapJaldin);
+
+  app.route('/dashboard/user_leave/:user_id/:tahun')
+    .get(todoListDashboard.userLeave);
 
   // Users
   var todoListUsers = require('./controller/users');
