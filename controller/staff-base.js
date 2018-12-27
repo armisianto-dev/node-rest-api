@@ -22,6 +22,7 @@ exports.listMenu = function (req, res) {
   sql += ' WHERE active_st = "1" AND display_st = "1" AND d.user_id = ? ';
   sql += ' GROUP BY parent_id ) e ON a.nav_id = e.parent_id ';
   sql += ' WHERE active_st = "1" AND display_st = "1" AND d.user_id = ? AND a.parent_id = ? ';
+  sql += ' ORDER BY nav_no, a.nav_id ';
   connection.query(sql, where, function (error, rows, fields) {
     if (error) {
       console.log(error)
