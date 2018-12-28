@@ -1,6 +1,13 @@
 'use strict';
 
 module.exports = function (app) {
+  // Login
+  var todoListLogin = require('./controller/auth');
+
+  app.route('/auth/login_process')
+    .post(todoListLogin.loginProcess);
+    ;
+
   // Base apps
   var todoListStaffBase = require('./controller/staff-base');
 
