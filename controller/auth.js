@@ -15,12 +15,17 @@ exports.loginProcess = function (req, res) {
 
   
   if (username == 'admin' && password == 'admin123') {
-    var rows = [{
-      "user_id" : "134"
-    }]
-    response.ok(rows, res)
+    var userID = "134";
+    connection.query('SELECT * FROM users WHERE user_id = ?', [userID], function (error, rows, fields) {
+      if (error) {
+        console.log(error)
+      } else {
+        response.ok(rows, res)
+      }
+    });
+      
   } else {
-    var rows = []
+    var rows = [];
     response.ok(rows, res)
   }
 }
